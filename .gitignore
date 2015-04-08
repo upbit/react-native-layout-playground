@@ -27,4 +27,4 @@ DerivedData
 
 # React Native
 node_modules/
-
+npm-debug.log
