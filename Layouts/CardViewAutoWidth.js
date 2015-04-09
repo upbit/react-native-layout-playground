@@ -12,8 +12,8 @@ var {
 module.exports = React.createClass({
   render: function() {
     return (
-      <View style={css.center}>
-        <View style={[styles.card, css.row]}>
+      <View style={[styles.container, css.row]}>
+        <View style={[styles.card]}>
           <Image
               style={[styles.background]}
               source={{uri: 'https://github.com/images/modules/dashboard/bootcamp/octocat_fork.png'}}/>
@@ -25,8 +25,12 @@ module.exports = React.createClass({
 
 var css = require('../CommonStyles');
 var styles = StyleSheet.create({
+  container: {
+    paddingHorizontal: 28,
+  },
   card: {
-    backgroundColor: '#F0FFF8',
+    flex: 1,
+    backgroundColor: '#F0F0FF',
     shadowColor: "#000000",
     shadowOpacity: 0.3,
     shadowRadius: 5,
@@ -36,7 +40,6 @@ var styles = StyleSheet.create({
     },
     padding: 8,
     borderRadius: 8,
-    width: 320,
     height: 200,
   },
   background: {
