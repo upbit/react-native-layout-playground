@@ -9,112 +9,24 @@ React Native layout playground
 
 ### FlexView
 
-~~~js
-'use strict';
+- (default) 水平分割(等宽)
+- (fixed-size) 左右固定宽度
 
-var React = require('react-native');
+### FlexViewColumn
 
-var {
-  Text,
-  View,
-  StyleSheet,
-} = React;
+- (default) 垂直分割(等高)
+- (fixed-size) 上下固定高度
 
-module.exports = React.createClass({
-  render: function() {
-    return (
-      <View style={[css.row]}>
-        <View style={[css.center, styles.items, styles.dark]}>
-          <Text style={styles.white}>First</Text>
-        </View>
-        <View style={[css.center, styles.items, styles.light]}>
-          <Text style={styles.black}>Middle</Text>
-        </View>
-        <View style={[css.center, styles.items, styles.dark]}>
-          <Text style={styles.white}>Last</Text>
-        </View>
-      </View>
-    );
-  }
-});
+### FlexViewAround
 
-var css = require('../CommonStyles');
-var styles = StyleSheet.create({
-  items: {
-    flex: 1,
-    height: 50,
-  },
+- 环绕布局
 
-  light: {
-    backgroundColor: 'rgba(0,0,0,0.2)',
-  },
-  dark: {
-    backgroundColor: 'rgba(0,0,0,0.8)',
-  },
-  white: {
-    color: 'white',
-  },
-  black: {
-    color: '#333333',
-  },
-});
-~~~
+### ImageView
 
-### FlexViewFixed
+- (default) 宽度自适应，限定高度(截断超出部分)
+- (contain) 全部显示，限定高度
+- (stretch) 缩放，限定高度
 
-~~~js
-module.exports = React.createClass({
-  render: function() {
-    return (
-      <View style={[css.row]}>
-        <View style={[css.center, styles.itemsFixed, styles.dark]}>
-          <Text style={styles.white}>First</Text>
-        </View>
-        <View style={[css.center, styles.items, styles.light]}>
-          <Text style={styles.black}>Middle</Text>
-        </View>
-        <View style={[css.center, styles.itemsFixed, styles.dark, {width: 100}]}>
-          <Text style={styles.white}>Last(2x)</Text>
-        </View>
-      </View>
-    );
-  }
-});
+### CardView
 
-var styles = StyleSheet.create({
-  itemsFixed: {
-    width: 50,
-    height: 50,
-  },
-});
-~~~
-
-### FlexImage
-
-~~~js
-var css = require('../CommonStyles');
-
-var getImageStyles = function(mode) {
-  if (mode == 'contain') {
-    return {flex: 1, resizeMode: Image.resizeMode.contain};
-  } else if (mode == 'cover') {
-    return {flex: 1, resizeMode: Image.resizeMode.cover};
-  } else if (mode == 'stretch') {
-    return {flex: 1, resizeMode: Image.resizeMode.stretch};
-  } else {  // default
-    return {flex: 1};
-  }
-};
-
-module.exports = React.createClass({
-  render: function() {
-    return (
-      <View style={[css.center, css.row, {backgroundColor: 'rgba(0,0,0,0.2)'}]}>
-        <Image
-            style={[{height: 100}, getImageStyles(this.props.mode)]}
-            source={{uri: 'https://github.com/images/modules/dashboard/bootcamp/octocat_fork.png'}} />
-      </View>
-    );
-  }
-});
-~~~
+- 固定长宽，图片平铺并显示阴影
