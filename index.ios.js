@@ -16,13 +16,15 @@ var {
 var css = require('./CommonStyles');
 
 var FlexView = require('./Layouts/FlexView');
-var FlexViewFixed = require('./Layouts/FlexViewFixed');
+var FlexViewColumn = require('./Layouts/FlexViewColumn');
+var FlexViewAround = require('./Layouts/FlexViewAround');
 var FlexImage = require('./Layouts/FlexImage');
+var CardView = require('./Layouts/CardView');
 
 var PlaceHolder = React.createClass({
   render: function() {
     return (
-      <View style={[css.center, css.transparent, {paddingTop: 8, height: 24}]}>
+      <View style={[css.center, css.transparent, {paddingTop: 8, paddingBottom: 2, height: 24}]}>
         <Text>{this.props.message}</Text>
       </View>);
   }
@@ -31,24 +33,36 @@ var PlaceHolder = React.createClass({
 var RCTLayoutPlayground = React.createClass({
   render: function() {
     return (
-      <ScrollView
-          style={{flex: 1}}
-          contentContainerStyle={{marginTop: 16}}>
+      <ScrollView style={{flex: 1}}>
 
-        <PlaceHolder message='Flex' />
-        <FlexView />
+        <PlaceHolder message='FlexView (default)' />
+        <FlexView mode='default'/>
 
-        <PlaceHolder message='Flex with fixed items' />
-        <FlexViewFixed />
+        <PlaceHolder message='FlexView (fixed-size)' />
+        <FlexView mode='fixed-size'/>
 
-        <PlaceHolder message='Image (default)' />
+        <PlaceHolder message='FlexViewColumn (default)' />
+        <FlexViewColumn mode='default'/>
+
+        <PlaceHolder message='FlexViewColumn (fixed-size)' />
+        <FlexViewColumn mode='fixed-size'/>
+
+        <PlaceHolder message='FlexViewAround' />
+        <FlexViewAround />
+
+        <PlaceHolder message='ImageView (default)' />
         <FlexImage mode='default'/>
 
-        <PlaceHolder message='Image (contain)' />
+        <PlaceHolder message='ImageView (contain)' />
         <FlexImage mode='contain'/>
 
-        <PlaceHolder message='Image (stretch)' />
+        <PlaceHolder message='ImageView (stretch)' />
         <FlexImage mode='stretch'/>
+
+        <PlaceHolder message='CardView with shadow' />
+        <CardView />
+
+        <PlaceHolder message='' />
 
       </ScrollView>
     );

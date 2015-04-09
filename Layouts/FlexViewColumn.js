@@ -8,18 +8,26 @@ var {
   StyleSheet,
 } = React;
 
+var getViewStyles = function(mode) {
+  if (mode == 'fixed-size') {
+    return {height: 30};
+  } else {  // default
+    return {flex: 1};
+  }
+};
+
 module.exports = React.createClass({
   render: function() {
     return (
-      <View style={[css.row]}>
-        <View style={[css.center, styles.itemsFixed, styles.dark]}>
+      <View style={[styles.container, css.column]}>
+        <View style={[css.center, getViewStyles(this.props.mode), styles.dark]}>
           <Text style={styles.white}>First</Text>
         </View>
-        <View style={[css.center, styles.items, styles.light]}>
+        <View style={[css.center, getViewStyles('default'), styles.light]}>
           <Text style={styles.black}>Middle</Text>
         </View>
-        <View style={[css.center, styles.itemsFixed, styles.dark, {width: 100}]}>
-          <Text style={styles.white}>Last(2x)</Text>
+        <View style={[css.center, getViewStyles(this.props.mode), styles.dark]}>
+          <Text style={styles.white}>Last</Text>
         </View>
       </View>
     );
@@ -28,15 +36,9 @@ module.exports = React.createClass({
 
 var css = require('../CommonStyles');
 var styles = StyleSheet.create({
-  items: {
-    flex: 1,
-    height: 50,
+  container: {
+    height: 150,
   },
-  itemsFixed: {
-    width: 50,
-    height: 50,
-  },
-
   light: {
     backgroundColor: 'rgba(0,0,0,0.2)',
   },
