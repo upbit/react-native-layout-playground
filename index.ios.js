@@ -21,6 +21,7 @@ var FlexViewAround = require('./Layouts/FlexViewAround');
 var FlexImage = require('./Layouts/FlexImage');
 var CardView = require('./Layouts/CardView');
 var CardViewAutoWidth = require('./Layouts/CardViewAutoWidth');
+var CardViewWithFlex = require('./Layouts/CardViewWithFlex');
 
 var PlaceHolder = React.createClass({
   render: function() {
@@ -65,6 +66,9 @@ var RCTLayoutPlayground = React.createClass({
 
         <PlaceHolder message='CardViewAutoWidth (rotate)' />
         <CardViewAutoWidth />
+
+        <PlaceHolder message='CardViewWithFlex (rotate)' />
+        <CardViewWithFlex />
 
         <PlaceHolder message='' />
       </ScrollView>

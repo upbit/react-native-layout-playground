@@ -30,7 +30,7 @@ var styles = StyleSheet.create({
   },
   card: {
     flex: 1,
-    backgroundColor: '#F0F0FF',
+    backgroundColor: '#E0E0FF',
     shadowColor: "#000000",
     shadowOpacity: 0.3,
     shadowRadius: 5,

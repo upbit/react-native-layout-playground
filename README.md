@@ -5,6 +5,14 @@ React Native layout playground
 
 ![preview1](./preview1.png) ![preview2](./preview2.png)
 
+- Landscape
+
+![preview4](./preview4.png)
+
+- Portrait
+
+![preview3](./preview3.png)
+
 ## Examples
 
 ### FlexView
