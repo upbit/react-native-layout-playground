@@ -37,4 +37,12 @@ React Native layout playground
 
 ### CardView
 
-- 固定长宽，图片平铺并显示阴影
+- 固定长宽，图片截断并显示阴影
+
+### CardViewAutoWidth
+
+- 宽度自适应，图片截断并显示阴影
+
+### CardViewWithFlex
+
+- 宽度自适应，内容按宽度自动排列
