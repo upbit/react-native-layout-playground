@@ -66,6 +66,7 @@ var RCTLayoutPlayground = React.createClass({
         <PlaceHolder message='CardViewAutoWidth (rotate)' />
         <CardViewAutoWidth />
 
+        <PlaceHolder message='' />
       </ScrollView>
     );
   }
