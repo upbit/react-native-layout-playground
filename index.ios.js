@@ -3,15 +3,13 @@
  * https://github.com/facebook/react-native
  */
 'use strict';
-
-var React = require('react-native');
-var {
+import React, {
   AppRegistry,
-  StyleSheet,
-  Text,
-  View,
+  Component,
   ScrollView,
-} = React;
+  Text,
+  View
+} from 'react-native';
 
 var css = require('./CommonStyles');
 
@@ -23,6 +21,8 @@ var CardView = require('./Layouts/CardView');
 var CardViewAutoWidth = require('./Layouts/CardViewAutoWidth');
 var CardViewWithFlex = require('./Layouts/CardViewWithFlex');
 
+var Ratio = require('./Layouts/Ratio');
+
 var PlaceHolder = React.createClass({
   render: function() {
     return (
@@ -32,10 +32,12 @@ var PlaceHolder = React.createClass({
   }
 });
 
-var RCTLayoutPlayground = React.createClass({
-  render: function() {
+
+class RCTLayoutPlayground extends Component {
+  render() {
     return (
       <ScrollView style={{flex: 1}}>
+        <PlaceHolder message='' />
 
         <PlaceHolder message='FlexView (default)' />
         <FlexView mode='default'/>
@@ -70,10 +72,14 @@ var RCTLayoutPlayground = React.createClass({
         <PlaceHolder message='CardViewWithFlex (rotate)' />
         <CardViewWithFlex />
 
+        <PlaceHolder message='Ratio' />
+        <Ratio />
+
         <PlaceHolder message='' />
       </ScrollView>
     );
   }
-});
+}
 
 AppRegistry.registerComponent('RCTLayoutPlayground', () => RCTLayoutPlayground);
+

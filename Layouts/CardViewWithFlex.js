@@ -9,25 +9,17 @@ var {
   Image,
 } = React;
 
-var renderCards = function(count) {
-  var result = [];
-  for (var i = 0; i < count; i++) { 
-    result.push(
-      <View style={[styles.card]}>
-        <Image
-            style={[styles.background]}
-            source={{uri: 'https://github.com/images/modules/dashboard/bootcamp/octocat_fork.png'}}/>
-      </View>
-    );
-  }
-  return {result};
-};
-
 module.exports = React.createClass({
   render: function() {
     return (
       <View style={[styles.container, css.row]}>
-        {renderCards(12)}
+      {Array.apply(0, Array(12)).map((x,y) =>
+        <View style={[styles.card]}>
+          <Image
+              style={[styles.background]}
+              source={{uri: 'https://github.com/images/modules/dashboard/bootcamp/octocat_fork.png'}}/>
+        </View>
+      )}
       </View>
     );
   }
